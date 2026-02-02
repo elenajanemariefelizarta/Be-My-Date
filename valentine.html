@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Be My Valentine 💖</title>
+
+  <style>
+    body {
+      background: linear-gradient(to right, #ff9a9e, #fad0c4);
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-family: Arial, sans-serif;
+    }
+
+    .box {
+      background: white;
+      padding: 30px;
+      border-radius: 20px;
+      text-align: center;
+      position: relative;
+      width: 360px;
+      height: 320px;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+    }
+
+    h1 {
+      color: #ff4d6d;
+    }
+
+    .buttons {
+      position: relative;
+      display: flex;
+      justify-content: center;
+      gap: 30px;
+      margin-top: 20px;
+      height: 50px;
+    }
+
+    button {
+      padding: 10px 22px;
+      font-size: 16px;
+      border-radius: 20px;
+      border: none;
+      cursor: pointer;
+    }
+
+    #yes {
+      background-color: #ff4d6d;
+      color: white;
+    }
+
+    #no {
+      background-color: #ccc;
+      position: absolute;
+      left: 50%;
+      transform: translateX(40px);
+    }
+
+    #message {
+      margin-top: 15px;
+      color: #ff4d6d;
+      font-weight: bold;
+    }
+
+    #photo {
+      display: none;
+      margin-top: 15px;
+      width: 100%;
+      border-radius: 15px;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="box">
+    <h1>Grace Capangpangan 💖</h1>
+    <p>Will you be my Valentine on <b>February 14</b>? 🌹</p>
+
+    <div class="buttons">
+      <button id="yes" onclick="yesClick()">YES 💕</button>
+      <button id="no" onmouseover="moveNo()">NO 🙈</button>
+    </div>
+
+    <p id="message"></p>
+    <img id="photo" src="yes.jpg" alt="Valentine Photo">
+  </div>
+
+  <script>
+    function moveNo() {
+      const noBtn = document.getElementById("no");
+      const box = document.querySelector(".box");
+
+      const maxX = box.clientWidth - noBtn.clientWidth;
+      const maxY = box.clientHeight - noBtn.clientHeight;
+
+      const x = Math.random() * maxX;
+      const y = Math.random() * maxY;
+
+      noBtn.style.left = x + "px";
+      noBtn.style.top = y + "px";
+    }
+
+    function yesClick() {
+      document.getElementById("message").innerHTML =
+        "YAY! 💘 See you on February 14, Grace! 🥰🌹";
+
+      document.getElementById("photo").style.display = "block";
+    }
+  </script>
+
+</body>
+</html>
